@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+#myClock {
+    width: 50vw;
+    padding: 5% 0;
+    background-color: rgb(34, 40, 40);
+    margin: 20vh auto 0 auto;
+}
+
+#border {
+    width: 40vw;
+    margin: 0 auto;
+    border: 5px solid white;
+}
+
+#border #outputTime {
+    font-size: 3rem;
+    word-spacing: 50px;
+    margin: 2% 0;
+    padding: 5% 2% 2% 0;
+}
+
+#myClock article:nth-of-type(2) {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 7%;
+}
