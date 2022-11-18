@@ -1,41 +1,36 @@
-let monate = [
-    "Januar",
-    "Februar",
-    "März",
-    "April",
-    "Mai",
-    "Juni",
-    "Juli",
-    "August",
-    "September",
-    "Oktober",
-    "November",
-    "Dezember"
-];
 
 let wochenTag = [
-    "Sonntag",
-    "Montag",
-    "Dienstag",
-    "Mittwoch",
-    "Donnerstag",
-    "Freitag",
-    "Samstag"
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
 ];
 
-let date = new Date();
-console.log(date);
-console.log(date.getFullYear());
-console.log(date.getMonth() + ' month');
-console.log(date.getDay() + ' day');
-console.log(date.getHours() + ' hozrs');
-console.log(date.getMinutes() + ' minutes');
-console.log(wochenTag[date.getDay()]);
-console.log(monate[date.getMonth()]);
+// echtzeituhr
+const outputDay = document.getElementById('outputDay');
+const outputHours = document.getElementById('outputHours');
+const outputMinutes = document.getElementById('outputMinutes');
+const outputSeconds = document.getElementById('outputSeconds');
+const outputPmAm = document.getElementById('outputPmAm');
 
+function myTimer() {
+    let realTime = new Date();
 
-const writeInHtml = document.getElementById('outputTime');
-let realTime = new Date();
-console.log(realTime.toLocaleTimeString('en-EN'));
-writeInHtml.innerHTML =wochenTag[realTime.getDay()] +  realTime.toLocaleTimeString('en-EN');
+    const wochentag = wochenTag[realTime.getDay()].slice(0, 3);
+    const hours = realTime.getHours();
+    const minutes = realTime.getMinutes();
+    const seconds = realTime.getSeconds();
+    realTime = realTime.toLocaleTimeString('en-EN').slice(0, 8);
 
+    outputDay.textContent = `${wochentag}`;
+    outputHours.textContent = `${hours}`;
+    outputMinutes.textContent = `${minutes}`;
+    outputSeconds.textContent = `${seconds}`;
+
+    outputPmAm.textContent = `${hours >= 12 ? 'PM':'AM'}`;
+};
+
+setInterval(myTimer, 1000);
